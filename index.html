@@ -4,26 +4,55 @@
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <link href="./style.css" type="text/css" rel="stylesheet">
-  </head>
-  <body>
     <script>
 
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
-        
+      var lastIndex = 10;
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+      var whatsNext = function() {
+        var newIndex = streams.home.length - 1;
+        if (newIndex > lastIndex) {
+          var nextTweet = streams.home[newIndex];
+          var $nextTweet = $('<div></div>');
+          $nextTweet.text('@'+ nextTweet.user + ': ' + nextTweet.message);
+          $('#next').append($nextTweet);
+          lastIndex = newIndex;
+        };
+      };
 
-      });
+        $(document).ready(function(){
+          var $body = $('body');
+          // $body.html('');
+          
+  
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<div></div>');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            $('#first').append($tweet);
+            // $tweet.appendTo($body);
+            index -= 1;
+            
+          }
 
-    </script>
+          lastIndex = 10;
+          
+          function scheduleUpdate() {
+            whatsNext();
+            setTimeout(scheduleUpdate, 1500);
+          };
+          scheduleUpdate();
+        });
+      </script>
+  </head>
+  <body>
+
+    <button id="btn1">Refresh page</button>
+
+    <h1></h1>
+    <div id="first"></div>
+    <div id="next"></div>
+
+    <p></p>
   </body>
 </html>
