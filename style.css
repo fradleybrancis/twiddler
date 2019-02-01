@@ -1,8 +1,35 @@
  body {
-  color:rgb(45, 37, 53);
+  font-size: 20px;
+  background-color: whitesmoke;
+  border: 10px solid powderblue;
+  margin: 30px;
+}
+#tweetTime, #nextTime {
+  color:blue;
+  font-family: Times New Roman;
+  font-size: 14px;
+  text-align: left;
+  margin-bottom: 6px;
+  margin-top: 0px;
+  padding-top:0px;
+}
+#tweet, #nextTweet {
+  color: black;
   font-family:Cambria;
   font-size: 20px;
-  background-color: beige;
-  border: 0px solid powderblue;
-  margin: 30px;
+  text-align: left;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+#first, #next {
+  width: 600px;
+  background-color: wheat;
+}
+h1 {
+  font-family: cursive;
+  font-size: 25px;
+  text-align: center;
+  margin: 12px, 12px, 12px, 12px;
+  background-color: firebrick;
+  color: peachpuff;
 }

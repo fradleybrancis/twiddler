@@ -12,12 +12,16 @@
         var newIndex = streams.home.length - 1;
         if (newIndex > lastIndex) {
           var nextTweet = streams.home[newIndex];
-          var $nextTweet = $('<div></div>');
-          $nextTweet.text('@'+ nextTweet.user + ': ' + nextTweet.message);
+          var $nextTweet = $('<div id="nextTweet"></div>');
+          var $nextTime = $('<div id="nextTime"></div>').text('Posted At ----- ' + nextTweet.created_at.getHours() + ':' + nextTweet.created_at.getMinutes() + ':' + nextTweet.created_at.getSeconds())
+          $nextTweet.text('@'+ nextTweet.user + ':' + nextTweet.message);
           $('#next').append($nextTweet);
+          $('#next').append($nextTime);
           lastIndex = newIndex;
         };
       };
+
+      var specifiedUser = function()
 
         $(document).ready(function(){
           var $body = $('body');
@@ -27,9 +31,11 @@
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
-            var $tweet = $('<div></div>');
+            var $tweet = $('<div id="tweet"></div>');
+            var $tweetTime = $('<div id = "tweetTime"></div>').text('Posted At ----- ' + tweet.created_at.getHours() + ':' + tweet.created_at.getMinutes() + ':' + tweet.created_at.getSeconds());
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
             $('#first').append($tweet);
+            $('#first').append($tweetTime);
             // $tweet.appendTo($body);
             index -= 1;
             
@@ -39,7 +45,7 @@
           
           function scheduleUpdate() {
             whatsNext();
-            setTimeout(scheduleUpdate, 1500);
+            setTimeout(scheduleUpdate, 100);
           };
           scheduleUpdate();
         });
@@ -47,9 +53,9 @@
   </head>
   <body>
 
-    <button id="btn1">Refresh page</button>
+    <!-- <button id="btn1">Refresh page</button> -->
 
-    <h1></h1>
+    <h1>Twiddler</h1>
     <div id="first"></div>
     <div id="next"></div>
 
