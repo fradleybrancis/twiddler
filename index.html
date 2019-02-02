@@ -21,14 +21,24 @@
         };
       };
 
-      var specifiedUser = function(){
+      var userDex = 0;
 
+      var specifiedUser = function(){
+        var shawn = streams.users.shawndrost;
+        var shawnsData = $('#shawndrost').click(function() {
+          $('#rightSide').children().remove();
+          for (var i = 0; i < shawn.length; i++) {
+            var $shawn = $('<div id="shawnsData"><div>').text('@'+ shawn[i].user +':'+ shawn[i].message);
+            var $shawnTime = $('<div>')
+             $('#rightSide').append($shawn);
+
+          };
+        })
       };
-      
+
 
         $(document).ready(function(){
           var $body = $('body');
-          // $body.html('');
           
   
           var index = streams.home.length - 1;
@@ -39,10 +49,17 @@
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
             $('#first').append($tweet);
             $('#first').append($tweetTime);
-            // $tweet.appendTo($body);
             index -= 1;
             
           }
+       
+          // var scheduleSortShawn = function() {
+          // setTimeout(specifiedUser, 5000);
+          // };
+          // scheduleSortShawn();
+
+          specifiedUser();
+          
 
           lastIndex = 10;
           
@@ -59,9 +76,16 @@
     <!-- <button id="btn1">Refresh page</button> -->
 
     <h1>Twiddler</h1>
-    <div id="first"></div>
+    <div id='userPick'>
+      <button id="shawndrost">shawndrost</button>
+      <button id="sharksforcheap">sharksforcheap</button>
+      <button id="mracus">mracus</button>
+      <button id="douglascalhoun">douglascalhoun</button>
+    </div>
+    <div id="rightSide"></div>
+    <div  id="first"></div>
     <div id="next"></div>
-
+    
     <p></p>
   </body>
 </html>
