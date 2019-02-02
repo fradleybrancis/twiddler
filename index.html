@@ -23,15 +23,78 @@
 
       var userDex = 0;
 
-      var specifiedUser = function(){
+      var shawndrostTweets = function(){
         var shawn = streams.users.shawndrost;
-        var shawnsData = $('#shawndrost').click(function() {
+        $('#shawndrost').click(function() {
           $('#rightSide').children().remove();
           for (var i = 0; i < shawn.length; i++) {
-            var $shawn = $('<div id="shawnsData"><div>').text('@'+ shawn[i].user +':'+ shawn[i].message);
-            var $shawnTime = $('<div>')
+            var $shawn = $('<div class="filterTweet"></div>').text('@'+ shawn[i].user +':'+ shawn[i].message);
+            var $shawnTime = $('<div class="filterTime"></div>').text('Posted at ----- ' + shawn[i].created_at);
              $('#rightSide').append($shawn);
+             $('#rightSide').append($shawnTime);
+          };
+        })
+      };
 
+      // var myTest = function(input) {
+      //   var input = this.input;
+      //   $('#'+input).click(function() {
+      //     var $input = $('<div></div>').text('This is my test message : '+ input[0].message);
+      //     $('#rightSide').append($input);
+      //   })
+      // }
+
+
+      // var filterUser = function(name) {
+      //   var currentUser = streams.users[name];
+      //   $(`#`+name).click(function() {
+      //     $('#rightSide').children().remove();
+      //     for (var i = 0; i < currentUser.length; i++) {
+      //       var $name = $('<div id="filteredData"></div>').text('@'+name[i].user + ':'+ name[i].message);
+      //       $('#rightSide').append($name);
+      //     };
+      //   })
+      // };
+
+
+
+
+      var sharksforcheapTweets = function(){
+        var shark = streams.users.sharksforcheap;
+        $('#sharksforcheap').click(function() {
+          $('#rightSide').children().remove();
+          for (var i = 0; i < shark.length; i++) {
+            var $shark = $('<div class="filterTweet"></div>').text('@'+ shark[i].user +':'+ shark[i].message);
+            var $sharkTime = $('<div class="filterTime"></div>').text('Posted at ----- ' + shark[i].created_at);
+             $('#rightSide').append($shark);
+             $('#rightSide').append($sharkTime);
+          };
+        })
+      };
+
+      var mracusTweets = function(){
+        var mracus = streams.users.mracus;
+        $('#mracus').click(function() {
+          $('#rightSide').children().remove();
+          for (var i = 0; i < mracus.length; i++) {
+            var $mracus = $('<div class="filterTweet"></div>').text('@'+ mracus[i].user +':'+ mracus[i].message);
+            var $mracusTime = $('<div class="filterTime"></div>').text('Posted at ----- ' + mracus[i].created_at);
+             $('#rightSide').append($mracus);
+             $('#rightSide').append($mracusTime);
+          };
+        })
+      };
+
+      var douglascalhounTweets = function(){
+        var douglas = streams.users.douglascalhoun;
+        $('#douglascalhoun').click(function() {
+          $('#rightSide').children().remove();
+          for (var i = 0; i < douglas.length; i++) {
+            var $douglas = $('<div class="filterTweet"></div>');
+            $douglas.text('@'+ douglas[i].user +':'+ douglas[i].message);
+            var $douglasTime = $('<div class="filterTime"></div>').text('Posted at ----- ' + douglas[i].created_at);
+             $('#rightSide').append($douglas);
+             $('#rightSide').append($douglasTime);
           };
         })
       };
@@ -58,7 +121,10 @@
           // };
           // scheduleSortShawn();
 
-          specifiedUser();
+          shawndrostTweets();
+          sharksforcheapTweets();
+          mracusTweets();
+          douglascalhounTweets();
           
 
           lastIndex = 10;
